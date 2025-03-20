@@ -26,4 +26,7 @@ jobs:
         run: npm ci
         
       - name: Run tests
-        run: npm test
+        run: npm test | tee test-output.txt
+        
+      - name: Add test output to summary
+        run: echo '#### Test Results\n' >> $GITHUB_STEP_SUMMARY && cat test-output.txt >> $GITHUB_STEP_SUMMARY
