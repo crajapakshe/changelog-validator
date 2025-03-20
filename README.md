@@ -143,8 +143,3 @@ npm install
 # Run tests
 npm test
 ```
-
-## License
-
-MIT
-```
