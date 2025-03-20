@@ -29,4 +29,4 @@ jobs:
         run: npm test | tee test-output.txt
         
       - name: Add test output to summary
-        run: echo '#### Test Results\n' >> $GITHUB_STEP_SUMMARY && cat test-output.txt >> $GITHUB_STEP_SUMMARY
+        run: cat test-output.txt >> $GITHUB_STEP_SUMMARY
