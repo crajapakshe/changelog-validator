@@ -21,6 +21,6 @@
     "simple-git": "^3.21.0"
   },
   "devDependencies": {
-    "vitest": "^1.0.4"
+    "vitest": "^3.0.9"
   }
 }
