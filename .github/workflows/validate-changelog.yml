@@ -37,5 +37,5 @@ jobs:
       - name: Validate Changelog
         uses: ./
         with:
-          changelog-path: './test/CHANGELOG.md'
+          changelog-path: 'test/CHANGELOG.md'
           check-updated: 'true'
