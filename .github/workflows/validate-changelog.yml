@@ -30,7 +30,6 @@ jobs:
       #     changelog-path: 'CHANGELOG.md'
       #     check-updated: 'true'
 
-    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
