@@ -29,6 +29,7 @@ runs:
   using: 'composite'
   steps:
     - name: Setup Node.js
+      shell: bash
       uses: actions/setup-node@v4
       with:
         node-version: '20'
@@ -39,5 +40,5 @@ runs:
       run: npm ci
 
     - name: Run changelog validation
-      shell: node
-      run: cli.js
+      shell: bash
+      run: node cli.js
