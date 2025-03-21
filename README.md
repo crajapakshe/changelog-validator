@@ -60,6 +60,29 @@ changelog-validator --path ./docs/CHANGELOG.md
 changelog-validator --check-updated
 ```
 
+## Local Docker Testing
+
+To test the action locally using Docker:
+
+1. Build the Docker image:
+```bash
+docker build -t changelog-validator .
+```
+
+2. Run the validator on a local changelog:
+```bash
+# Basic validation
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator
+
+# With custom path
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator --path ./docs/CHANGELOG.md
+
+# Check if updated (requires git)
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator --check-updated
+```
+
+Note: The `-v $(pwd):/workspace` flag mounts your current directory into the container's `/workspace` directory, making your files accessible to the validator.
+
 ## Validation Rules
 
 The validator ensures your changelog follows these rules:
