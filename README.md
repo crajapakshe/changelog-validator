@@ -192,3 +192,52 @@ npm install
 # Run tests
 npm test
 ```
+
+### Test output
+```markdown
+stdout | test/index.test.js > validates a correct changelog
+✅ Changelog validation passed
+
+stderr | test/index.test.js > fails on missing changelog
+❌ CHANGELOG.md file not found
+
+stderr | test/index.test.js > fails on empty changelog
+❌ Changelog validation failed:
+  - Changelog cannot be empty
+  - Changelog must have a "Change Log" header
+  - Changelog must contain at least one semantic version header
+  - Changelog must contain an Unreleased section
+  - Unreleased section must follow the format: Added, Changed, Fixed
+
+stderr | test/index.test.js > fails on empty changelog
+❌ Error: process.exit unexpectedly called with "1"
+
+stderr | test/index.test.js > validates unreleased section format
+❌ Changelog validation failed:
+  - Changelog must contain at least one semantic version header
+  - Unreleased section must follow the format: Added, Changed, Fixed
+
+stderr | test/index.test.js > validates unreleased section format
+❌ Error: process.exit unexpectedly called with "1"
+
+stderr | test/index.test.js > validates unreleased sections are not all empty
+❌ Changelog validation failed:
+  - At least one of the sections (Added, Changed, Fixed) must contain changes
+
+stderr | test/index.test.js > validates unreleased sections are not all empty
+❌ Error: process.exit unexpectedly called with "1"
+
+ ✓ test/index.test.js (5 tests) 13ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  19:21:16
+   Duration  317ms (transform 92ms, setup 0ms, collect 60ms, tests 13ms, environment 0ms, prepare 89ms)
+```
+
+## Contributions
+Welcome contributions! Please visit [Contributing Guide](https://github.com/crajapakshe/changelog-validator/blob/main/CONTRIBUTING.md) for more details on how to get started.
+
+Thank you to all the contributors who have helped make this project better:
+
+[![Contributors](https://contrib.rocks/image?repo=crajapakshe/changelog-validator)](https://github.com/crajapakshe/changelog-validator/graphs/contributors)
