@@ -1,5 +1,7 @@
 # Changelog Validator
 
+[![Tests](https://github.com/crajapakshe/changelog-validator/actions/workflows/test.yml/badge.svg)](https://github.com/crajapakshe/changelog-validator/actions/workflows/test.yml)  [![Code Scanning](https://github.com/crajapakshe/changelog-validator/actions/workflows/code-scanning-shared.yml/badge.svg)](https://github.com/crajapakshe/changelog-validator/actions/workflows/code-scanning-shared.yml)
+
 A GitHub Action and CLI tool to validate changelog files following the [Keep a Changelog](http://keepachangelog.com/) format.
 
 ## Features
