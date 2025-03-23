@@ -1,0 +1,25 @@
+# Version control
+.git
+.gitignore
+.github
+
+# Dependencies
+node_modules
+
+# Test files
+test
+coverage
+
+# Development configs
+.editorconfig
+.eslintrc
+.prettierrc
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+
+# Build artifacts
+dist
+build

@@ -11,6 +11,32 @@ A GitHub Action and CLI tool to validate changelog files following the [Keep a C
 - Provides detailed validation feedback in GitHub Actions summary
 - Can be used as both a CLI tool and GitHub Action
 
+## CHANGELOG.md Format
+```markdown
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased] - yyyy-mm-dd
+
+### Added
+
+### Changed
+
+### Fixed
+
+## [1.0.0] - 2025-03-18
+
+### Added
+
+### Changed
+
+### Fixed
+```
+
 ## Usage as a GitHub Action
 
 ```yaml
@@ -59,6 +85,29 @@ changelog-validator --path ./docs/CHANGELOG.md
 # Check if updated (in git repository)
 changelog-validator --check-updated
 ```
+
+## Local Docker Testing
+
+To test the action locally using Docker:
+
+1. Build the Docker image:
+```bash
+docker build -t changelog-validator .
+```
+
+2. Run the validator on a local changelog:
+```bash
+# Basic validation
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator
+
+# With custom path
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator --path ./docs/CHANGELOG.md
+
+# Check if updated (requires git)
+docker run --rm -v $(pwd):/workspace -w /workspace changelog-validator --check-updated
+```
+
+Note: The `-v $(pwd):/workspace` flag mounts your current directory into the container's `/workspace` directory, making your files accessible to the validator.
 
 ## Validation Rules
 
