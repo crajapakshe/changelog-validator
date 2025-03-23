@@ -1,4 +1,6 @@
 name: 'Changelog Validator'
+icon: check-circle
+color: green
 description: 'Validates that CHANGELOG.md exists and follows the expected format'
 inputs:
   changelog-path:
