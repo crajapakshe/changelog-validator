@@ -33,4 +33,4 @@ jobs:
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git
           git add .
           git commit -m "Update Wiki from README"
-          git push origin master --force
+          git push origin main --force
