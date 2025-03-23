@@ -1,0 +1,37 @@
+name: Update Wiki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+
+jobs:
+  update-wiki:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Copy README to Wiki
+        run: |
+          mkdir -p ./wiki
+          cp README.md ./wiki/Home.md
+          cp -r docs ./wiki
+
+      - name: Push to Wiki
+        run: |
+          cd ./wiki
+          git init
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git
+          git add .
+          git commit -m "Update Wiki with README"
+          git push origin master --force
