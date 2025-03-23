@@ -1,0 +1,27 @@
+# This re-usable work flow is only for uncompiled languages and compiled languages that don't require special build steps
+name: Code Scanning (Shared)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule: # Code scanning will also run on a schedule (Sunday's @ 3:30AM)
+    - cron: '30 3 * * 0' 
+
+
+jobs:
+  # This job calls the centralized code scanning workflow
+  code-scanning:
+    uses: crajapakshe/devops-tools/.github/workflows/codeql-auto.yml@main
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+  # This job calls the centralized dependency scanning workflow    
+  dependancy-scanning:
+    uses: crajapakshe/devops-tools/.github/workflows/dependency-review-auto.yml@main
+    permissions:
+      contents: read
+      pull-requests: write
